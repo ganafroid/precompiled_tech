@@ -1,0 +1,125 @@
+@import 'main.css';
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+//colors
+$mainnav: #0f1d24;
+$fill: #1e3b49;
+$body: #40A09D;
+$rest: #779091;
+$link: #B1BABC;
+$font: #FFFFFF;
+
+//fonts
+$font_0: 'Montserrat', sans-serif;
+
+body {
+	font-family: $font_0;
+	background: $body;
+}
+h2 {
+	font-family: $font_0;
+	color: $font;
+}
+
+h3 {
+	font-family: $font_0;
+	color: $mainnav;
+}
+
+h4 {
+	font-family: $font_0;
+	color: $font;
+}
+
+h5 {
+  	font-family: $font_0;
+	color: $mainnav;
+}
+
+.sidenav {
+	background-color: $mainnav;
+	a {
+		color: $link;
+		&:hover {
+			color: $font;
+		}
+    }
+    .button {
+      background: $font;
+      color: $body;
+      font-family: $font_0;
+      &:hover {
+        background: $link;
+      }
+    }
+  }   
+#topnav {
+	background: $mainnav;
+}
+
+#main {
+  button {
+    background: $fill;
+    color: $font;
+    font-family: $font_0;
+    font-size: 15px;
+    &:hover {
+      background: $mainnav;
+    }
+  }
+}
+  
+#openicon {
+	color: $font;
+}
+input[type=text] {
+	border: 2px solid $link;
+	background-color: $fill;
+    color: $font;
+    font-family: $font_0;
+}
+td {
+	border-right: 0 solid $mainnav;
+	border-bottom: 0 solid $mainnav;
+    font-family: $font_0;
+	&:first-child {
+		border-left: 0 solid $mainnav;
+	}
+}
+th {
+	background: $mainnav;
+	color: $font;
+    font-family: $font_0;
+}
+tr {
+	&:nth-child(even) td {
+		background: $link;
+	}
+	&:nth-child(odd) td {
+		background: $rest;
+	}
+    font-family: $font_0;
+}
+
+text.ct-label {
+	fill: $font;
+	color: $font;
+}
+.ct-series-a .ct-slice-pie {
+	fill: $mainnav;
+}
+.ct-series-b .ct-slice-pie {
+	fill: $link;
+}
+.ct-series-c .ct-slice-pie {
+	fill: $fill;
+}
+
+//.button {
+//    background: $font;
+//    color: $body;
+//    font-family: $font_0;
+//    &:hover {
+//      background: $link;
+//	}
+//}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="PrecomTech">
+    <meta name="author" content="Sarah Ganachaud">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Wilson</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <link rel="stylesheet" type="text/css" href="css/black.css">
+    <link rel="stylesheet" type="text/css" href="css/white.css">
+  </head>
+
+  <body>
+    <div id="app">
+      <link rel="stylesheet" v-bind:href="current_template.value">
+
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          
+          <img src="img/avatar.jpg" alt="avatar">
+          
+          <h4>Welcome Back!</h4>
+
+          <br>
+          <hr>
+
+          <a href="#">Availability</a>
+          <a href="#">Profiles</a>
+          <a href="#">Reservation</a>
+          <a href="#">Settings</a>
+          
+          <br>
+          
+          <template v-for="template in templates">
+            <button class="button" v-on:click="setTemplate(template.id)">{{ template.name }}</button>
+          </template>
+        </div>
+
+        <div id="main">
+          <div id="topnav">
+            <span id="openicon" style="font-size:30px;cursor:pointer;width:30px;display:inline;" onclick="openNav()">&#9776;</span>
+
+            <img class="logobig" src="img/wilson-grey.png" alt="Wilson logo">
+            <img class="logosmall" src="img/wilson-grey-sm.png" alt="Wilson logo">
+
+            <form>
+              <input style="float:right;" type="text" name="search" placeholder="Search..">
+            </form>
+          </div>
+
+          <div id="content-section">
+            <div id="stats">
+              <div class="stat-item">
+                <h3>{{ victory }}</h3>
+                <h4>Grand Slams</h4> <br>
+                <button type="submit" @click="updateVictory"> ADD VICTORY </button>
+              </div>
+              <div class="stat-item">
+                <h3>{{ tiebreaks }}</h3>
+                <h4>Tie Breaks</h4> <br>
+                <button type="submit" @click="updateTieBreaks"> ADD TIE BREAKS </button>
+              </div>
+              <div class="stat-item">
+                <div id="chart1" class="stat ct-chart ct-perfect-fourth"></div>
+              </div>
+            </div>
+
+
+            <div id="table">
+              <hr><br><h2>Your Event Info</h2><br>
+              <table>
+                <thead>
+                  <tr>
+                    <template v-for="value in tableHeader(users)">
+                      <th>{{ value }}</th>
+                    </template>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <template v-for="user in users">
+                    <tr>
+                      <td>{{ user.Date }}</td>
+                      <td>{{ user.Opponent }}</td>
+                      <td>{{ user.Rating }}</td>
+                      <td>{{ user.Racket }}</td>
+                    </tr>
+
+                  </template>    
+                </tbody>
+              </table>
+
+              <button v-on:click="removeElement(users, user)">Remove Oldest</button>
+              <button v-on:click="addRow(users)">Add New Event</button>
+
+            </div>
+          </div>
+
+        </div>
+      
+    <footer>
+      <hr>
+      <h5><small>&copy; TENNIS ADMIN DASHBOARD 2017. ALL RIGHTS RESERVED.</small></h5>
+	</footer>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>  
+  <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+  <script src="js/main.js"></script>
+
+  </body>
+</html>
